@@ -1,0 +1,213 @@
+FUNCTION mod :
+PARAM va
+PARAM vb
+t6 := va / vb
+t3 := t6 * vb
+t1 := va - t3
+RETURN t1
+FUNCTION do_work :
+PARAM vn
+ARG #5
+ARG vn
+t9 := CALL mod
+vn := t9
+t12 := #2 * vn
+vx1 := t12
+t15 := vn + vn
+vx2 := t15
+vx3 := #16
+t22 := vx3 + vx2
+t21 := t22 + vx1
+vx1 := t21
+t33 := vx1 + #1
+t36 := vx2 + #1
+t29 := t33 * t36
+t39 := vx3 + #1
+t28 := t29 * t39
+t26 := vx1 + t28
+vx2 := t26
+t49 := vx1 + #1
+t45 := vx1 * t49
+t54 := vx2 + #1
+t57 := vx2 + #1
+t46 := t54 * t57
+t43 := t45 + t46
+t62 := vx3 + #1
+t65 := vx3 + #1
+t44 := t62 * t65
+t42 := t43 + t44
+vx3 := t42
+t73 := vx1 + #1
+t76 := vx2 + #1
+t69 := t73 + t76
+t79 := vx3 + #1
+t68 := t69 + t79
+vx1 := t68
+t83 := vx1 + vx2
+t82 := t83 + vx3
+RETURN t82
+FUNCTION main :
+vt1 := #2
+vt2 := #5
+vt3 := #10
+t95 := vt2 * vt3
+t91 := #3 * t95
+t90 := t91 - #20
+vi := t90
+t107 := vt1 * vt2
+t115 := vt2 * vt3
+t111 := vt1 * t115
+t110 := t111 / #32
+t104 := t107 * t110
+t101 := #42 - t104
+t100 := t101 + #100
+vj := t100
+t141 := vt1 * vt2
+t138 := t141 * #3
+t137 := t138 - null
+t127 := #50 - t137
+t145 := vt1 * vt2
+t125 := t127 - t145
+t148 := vt1 * vt2
+t123 := t125 - t148
+t121 := t123 + #3
+t119 := t121 + #2
+t118 := t119 + #1
+vk := t118
+vcnt := #0
+vsum := #0
+t153 := vt1 * vt2
+vlen := t153
+DEC varray 40
+DEC vbrray 40
+LABEL label1 :
+IF vcnt < vk GOTO label2
+GOTO label3
+LABEL label2 :
+t158 := vsum + #1
+vsum := t158
+ARG vlen
+ARG vcnt
+t162 := CALL mod
+t163 := t162 * #4
+t166 := &varray + t163
+*t166 := vi
+t168 := vi + #1
+vi := t168
+t171 := vcnt + #1
+vcnt := t171
+GOTO label1
+LABEL label3 :
+vcnt := #0
+LABEL label4 :
+IF vcnt < #100 GOTO label5
+GOTO label6
+LABEL label5 :
+ARG vlen
+ARG vcnt
+t178 := CALL mod
+t179 := t178 * #4
+t182 := &vbrray + t179
+*t182 := vi
+t184 := vi + #1
+vi := t184
+t187 := vcnt + #1
+vcnt := t187
+GOTO label4
+LABEL label6 :
+vcnt := #0
+LABEL label7 :
+ARG #10
+t193 := CALL do_work
+ARG #30
+ARG t193
+t192 := CALL mod
+IF vcnt < t192 GOTO label8
+GOTO label9
+LABEL label8 :
+ARG vlen
+ARG vcnt
+t198 := CALL mod
+t199 := t198 * #4
+t202 := &varray + t199
+vj := *t202
+t207 := #-1 * vcnt
+t204 := vsum + t207
+ARG vj
+t205 := CALL do_work
+t203 := t204 + t205
+vsum := t203
+t215 := #2 * vcnt
+t213 := vj + t215
+vj := t213
+t220 := #2 * vcnt
+t218 := vj + t220
+vj := t218
+t225 := #2 * vcnt
+t223 := vj + t225
+vj := t223
+ARG #10
+t230 := CALL do_work
+ARG #10
+ARG t230
+t228 := CALL mod
+ARG vj
+t233 := CALL do_work
+ARG #10
+ARG t233
+t229 := CALL mod
+IF t228 == t229 GOTO label10
+ARG #20
+ARG vj
+t236 := CALL mod
+vj := t236
+GOTO label12
+LABEL label10 :
+ARG #10
+ARG vj
+t239 := CALL mod
+vj := t239
+LABEL label12 :
+ARG vlen
+ARG vcnt
+t243 := CALL mod
+t244 := t243 * #4
+t247 := &varray + t244
+t248 := vj * vj
+*t247 := t248
+t251 := vcnt + #1
+vcnt := t251
+GOTO label7
+LABEL label9 :
+t262 := &varray + #0
+t255 := vj + *t262
+t266 := &varray + #4
+t254 := t255 + *t266
+vj := t254
+t275 := &varray + #0
+t268 := vj + *t275
+t279 := &varray + #4
+t267 := t268 + *t279
+vj := t267
+t288 := &varray + #0
+t281 := vj + *t288
+t292 := &varray + #4
+t280 := t281 + *t292
+vj := t280
+t301 := &varray + #0
+t294 := vj + *t301
+t305 := &varray + #4
+t293 := t294 + *t305
+vj := t293
+WRITE vj
+t311 := &varray + #0
+WRITE *t311
+t316 := &varray + #4
+WRITE *t316
+t321 := &varray + #8
+WRITE *t321
+t326 := &varray + #12
+WRITE *t326
+t331 := &varray + #16
+WRITE *t331
+RETURN #0
